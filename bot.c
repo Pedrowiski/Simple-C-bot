@@ -97,7 +97,8 @@ void on_message(struct discord *client,
         return;
 
     if (starts_with("&ping", message->content) == 0) {
-        send_text_message(buffer_sprintf("_Pong_, %s! 🏓", "Assembly"));
+        send_text_message(buffer_sprintf("_Pong_, %s! 🏓",
+            message->author->username));
         free(parameters.content);
     } else if (starts_with("&ask", message->content) == 0) {
         char *answers[] = {
